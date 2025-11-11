@@ -32,6 +32,7 @@
 #include "pico/stdlib.h"
 #include "pico/binary_info.h"
 #include "hardware/pio.h"
+#include "hardware/clocks.h"
 #include "pico/multicore.h"
 #include "pio_jtag.h"
 #include "cdc_uart.h"
@@ -189,6 +190,9 @@ int main()
     cdc_uart_init( 1, PIN_UART1, PIN_UART1_RX, PIN_UART1_TX );
 #endif
 
+#if ( BOARD_TYPE == BOARD_CYCLOMOD )
+    clock_gpio_init(21, CLOCKS_CLK_GPOUT0_CTRL_AUXSRC_VALUE_XOSC_CLKSRC, 1);
+#endif
 
 #ifdef MULTICORE
     multicore_launch_core1(core1_entry);

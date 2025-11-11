@@ -29,15 +29,15 @@ if(WIN32)
 else()
     set(USERHOME $ENV{HOME})
 endif()
-set(sdkVersion 2.1.1)
+set(sdkVersion 2.2.0)
 set(toolchainVersion 14_2_Rel1)
-set(picotoolVersion 2.1.1)
+set(picotoolVersion 2.2.0-a4)
 set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
 if (EXISTS ${picoVscode})
     include(${picoVscode})
 endif()
 # ====================================================================================
-set(PICO_BOARD pico CACHE STRING "Board type")
+set(PICO_BOARD pico2 CACHE STRING "Board type")
 
 # Generated Cmake Pico project file
 
@@ -85,7 +85,10 @@ pico_set_program_version(dirtyJtag "0.1")
 #pico_enable_stdio_usb(dirtyJtag 0)
 
 # Add the standard library to the build
-target_link_libraries(dirtyJtag PRIVATE pico_stdlib)
+target_link_libraries(dirtyJtag PRIVATE 
+    pico_stdlib
+    pico_bootsel_via_double_reset
+)
 
 # Add any user requested libraries
 target_link_libraries(dirtyJtag PRIVATE
@@ -95,6 +98,12 @@ target_link_libraries(dirtyJtag PRIVATE
 	tinyusb_device
 	tinyusb_board
 	pico_multicore
+)
+
+# Entering the bootloader in this way also lets us specify a GPIO to be used
+# as a bootloader activity LED:
+target_compile_definitions(dirtyJtag PRIVATE
+	PICO_BOOTSEL_VIA_DOUBLE_RESET_ACTIVITY_LED=25
 )
 
 pico_add_extra_outputs(dirtyJtag)

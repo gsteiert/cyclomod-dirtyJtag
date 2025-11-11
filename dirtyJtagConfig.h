@@ -41,14 +41,16 @@
 #define BOARD_QMTECH_RP2040_DAUGHTERBOARD 3
 #define BOARD_WERKZEUG       4
 #define BOARD_RP2040_ZERO    5
+#define BOARD_CYCLOMOD       6
 
 // Select the board type from the above
-#define BOARD_TYPE BOARD_PICO
+//#define BOARD_TYPE BOARD_PICO
 //#define BOARD_TYPE BOARD_ADAFRUIT_ITSY
 //#define BOARD_TYPE BOARD_SPOKE_RP2040
 //#define BOARD_TYPE BOARD_WERKZEUG
 //#define BOARD_TYPE BOARD_QMTECH_RP2040_DAUGHTERBOARD
 //#define BOARD_TYPE BOARD_RP2040_ZERO
+#define BOARD_TYPE BOARD_CYCLOMOD
 
 // General mapping
 // TDI  SPIO RX
@@ -186,6 +188,31 @@
 #define PIN_UART1       uart1
 #define PIN_UART1_TX    8
 #define PIN_UART1_RX    9
+
+#elif ( BOARD_TYPE == BOARD_CYCLOMOD )
+
+#define PIN_TDI 7
+#define PIN_TDO 4
+#define PIN_TCK 6
+#define PIN_TMS 5
+#define PIN_RST 2
+#define PIN_TRST 3
+
+// the LED is actually a ws2812 neopixel, using a
+// spare pin where we could attach a led, updating the
+// neopixel would probably be slow
+#define LED_INVERTED   0
+#define PIN_LED_TX     28
+#define PIN_LED_ERROR  28
+#define PIN_LED_RX     28
+
+#define CDC_UART_INTF_COUNT 2
+#define PIN_UART0       uart0
+#define PIN_UART0_TX    12
+#define PIN_UART0_RX    13
+#define PIN_UART1       uart1
+#define PIN_UART1_TX    26
+#define PIN_UART1_RX    27
 
 
 #endif // BOARD_TYPE
