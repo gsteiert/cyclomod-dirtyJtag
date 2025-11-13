@@ -4,20 +4,20 @@ This is intended to be used with the CycloMod board:
 [https://github.com/gsteiert/cyclomod](https://github.com/gsteiert/cyclomod)
 
 ## Pins
-| Define       | GPIO | Connection | Notes |
-| ------------ |:----:|:----------:| ----- | 
-| PIN_TDI      | 7    | FPGA TDI   | 
-| PIN_TDO      | 4    | FPGA TDO   | 
-| PIN_TCK      | 6    | FPGA TCK   | 
-| PIN_TMS      | 5    | FPGA TMS   | 
-| PIN_RST      | 2    | NC         | Not used
-| PIN_TRST     | 3    | NC         | Not used
-| PIN_LED      | 28   | NC         | Not used
-| PIN_UART0_TX | 12   | FPGA B4    | FPGA RX 
-| PIN_UART0_RX | 13   | FPGA A5    | FPGA TX
-| PIN_UART1_TX | 26   | M.2 A0     | External UART
-| PIN_UART1_RX | 27   | M.2 A1     | External UART
-| PIN_CLK_OUT  | 21   | FPGA B8    | 12MHz Clock
+| Define       | GPIO | Connection  | Notes |
+| ------------ |:----:|:-----------:| ----- | 
+| PIN_TDI      | 7    | FPGA TDI    | 
+| PIN_TDO      | 4    | FPGA TDO    | 
+| PIN_TCK      | 6    | FPGA TCK    | 
+| PIN_TMS      | 5    | FPGA TMS    | 
+| PIN_RST      | 2    | NC          | Not used
+| PIN_TRST     | 3    | NC          | Not used
+| PIN_LED      | 28   | NC          | Not used
+| PIN_UART0_TX | 12   | FPGA B4     | FPGA RX 
+| PIN_UART0_RX | 13   | FPGA A5     | FPGA TX
+| PIN_UART1_TX | 26   | MicroMod A0 | External UART
+| PIN_UART1_RX | 27   | MicorMod A1 | External UART
+| PIN_CLK_OUT  | 21   | FPGA B8     | 12MHz Clock
 
 * The JTAG is connected directly to the FPGA.  RST and TRST are unused.
 * UART0 is connected to the FPGA, UART1 is connected to A0 and A1.
