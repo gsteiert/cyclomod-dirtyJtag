@@ -191,7 +191,7 @@ int main()
 #endif
 
 #if ( BOARD_TYPE == BOARD_CYCLOMOD )
-    clock_gpio_init(21, CLOCKS_CLK_GPOUT0_CTRL_AUXSRC_VALUE_XOSC_CLKSRC, 1);
+    clock_gpio_init(PIN_CLK_OUT, CLOCKS_CLK_GPOUT0_CTRL_AUXSRC_VALUE_XOSC_CLKSRC, 1);
 #endif
 
 #ifdef MULTICORE

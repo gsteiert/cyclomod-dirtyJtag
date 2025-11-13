@@ -198,9 +198,6 @@
 #define PIN_RST 2
 #define PIN_TRST 3
 
-// the LED is actually a ws2812 neopixel, using a
-// spare pin where we could attach a led, updating the
-// neopixel would probably be slow
 #define LED_INVERTED   0
 #define PIN_LED_TX     28
 #define PIN_LED_ERROR  28
@@ -213,7 +210,7 @@
 #define PIN_UART1       uart1
 #define PIN_UART1_TX    26
 #define PIN_UART1_RX    27
-
+#define PIN_CLK_OUT     21 
 
 #endif // BOARD_TYPE
 
